@@ -26,8 +26,11 @@ public final class ItemStackWrapper extends ItemStack {
 
     public ItemStackWrapper(ItemStack item) {
         super(item.getType());
-        meta = item.getItemMeta();
-        hasItemMeta = item.hasItemMeta();
+        if (hasItemMeta) {
+            meta = item.getItemMeta();
+        } else {
+            meta = null;
+        }
     }
 
     @Override
